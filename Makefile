@@ -1,36 +1,32 @@
-# **************************************************************************** #
-#                                                                              #
-#                                                         :::      ::::::::    #
-#    Makefile                                           :+:      :+:    :+:    #
-#                                                     +:+ +:+         +:+      #
-#    By: jiyan <jiyan@student.42.fr>                +#+  +:+       +#+         #
-#                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/09/12 17:19:50 by jiyan             #+#    #+#              #
-#    Updated: 2025/09/12 20:45:30 by jiyan            ###   ########.fr        #
-#                                                                              #
-# **************************************************************************** #
 
-NAME = push_swap
-LIBFT = ./libft/libft.a
-INCLUDE = -I./include
-SRCS = ./src/util.c ./src/input_check.c
-
+NAME = pipex
+SRCS = src/pipex.c src/pipex_util.c src/pipex_util1.c
+LIBFT_DIR = ./libft
+LIBFT = $(LIBFT_DIR)/libft.a
 OBJS = $(SRCS:.c=.o)
+
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -I./include
-AR = ar rcs
+CFLAGS = -Wall -Wextra -Werror
 
-all: $(NAME)
+all: $(LIBFT) $(NAME)
 
-$(NAME): $(OBJS)
-	ar rcs $(NAME) $(OBJS)
+$(LIBFT):
+	make -C $(LIBFT_DIR)
+
+$(NAME): $(OBJS) $(LIBFT)
+	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+
+src/%.o: src/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)
- 
+	make -C $(LIBFT_DIR) clean
+
 fclean: clean
 	rm -f $(NAME)
- 
+	make -C $(LIBFT_DIR) fclean
+
 re: fclean all
 
-.PHONY: all clean fclean rie
+.PHONY: all clean fclean re

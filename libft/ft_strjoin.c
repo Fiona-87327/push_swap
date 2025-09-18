@@ -12,10 +12,6 @@
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *str);
-size_t	ft_strlcpy(char *dest, const char *src, size_t size);
-size_t	ft_strlcat(char *dest, const char *src, size_t size);
-
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	size_t	s1_len;
@@ -33,12 +29,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	ft_strlcat(s1s2_r, s2, s1_len + s2_len + 1);
 	return (s1s2_r);
 }
-// #include <stdio.h>
-// int main(void)
-// {
-//     char *s1 = "Heilbronn 42";
-//     char *s2 ="**";
-
-//     printf("%s", ft_strjoin(s1, s2));
-//     return 0;
-// }
