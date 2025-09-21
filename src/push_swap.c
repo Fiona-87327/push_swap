@@ -3,10 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jiyan <jiyan@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jiyawang <jiyan@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/12 20:48:28 by jiyan             #+#    #+#             */
-/*   Updated: 2025/09/12 20:48:32 by jiyan            ###   ########.fr       */
+/*   Created: 2025/09/21 21:29:49 by jiyawang          #+#    #+#             */
+/*   Updated: 2025/09/21 21:30:52 by jiyawang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "push_swap.h"
+
+int	main(int argc, char **argv)
+{
+    input_check(argc, argv);
+    return (0);
+}

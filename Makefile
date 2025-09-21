@@ -1,6 +1,6 @@
 
-NAME = pipex
-SRCS = src/pipex.c src/pipex_util.c src/pipex_util1.c
+NAME = push_swap
+SRCS = src/input_check.c.c src/util.c src/push_swap.c
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 OBJS = $(SRCS:.c=.o)
