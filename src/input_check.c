@@ -6,11 +6,32 @@
 /*   By: jiyawang <jiyan@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 21:29:34 by jiyawang          #+#    #+#             */
-/*   Updated: 2025/09/21 21:29:38 by jiyawang         ###   ########.fr       */
+/*   Updated: 2025/09/24 14:55:44 by jiyawang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	main(int argc, char **argv)
+{
+	if (argc == 2)
+	{
+		input_check(argc, argv);
+		return (0);
+	}
+	write(1, "wrong number of arguments\n", 26);
+	return (1);
+}
+
+int	c_len(char **array)
+{
+	int	len;
+
+	len = 0;
+	while (array[len])
+		len++;
+	return (len);
+}
 
 int	nbr_check(char *argv)
 {
@@ -28,27 +49,6 @@ int	nbr_check(char *argv)
 	return (1);
 }
 
-int	dup_check(char **argv)
-{
-	int	i;
-	int	j;
-	int	len;
-
-	i = 0;
-	len = c_len(argv);
-	while (i < len)
-	{
-		j = i + 1;
-		while (j < len)
-		{
-			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
-				return (1);
-			j++;
-		}
-		i++;
-	}
-	return (0);
-}
 
 void	input_check(int argc, char **argv)
 {
@@ -65,11 +65,11 @@ void	input_check(int argc, char **argv)
 	{
 		tmp = ft_atoi(ar_tmp[i]);
 		if (tmp < INT_MIN || tmp > INT_MAX)
-			error("error");
+			error("Error: Number out of int range");
 		if (duplicates_check(ar_tmp))
-			error("error");
+			error("Error: Duplicate numbers detected");
 		if (!nbr_check(ar_tmp[i]))
-			error("error");
+			error("Error: Invalid number format");
 		i++;
 	}
 	if (argc == 2)

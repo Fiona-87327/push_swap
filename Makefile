@@ -1,12 +1,13 @@
 
 NAME = push_swap
-SRCS = src/input_check.c.c src/util.c src/push_swap.c
+SRCS = src/array_sort.c src/check_util.c src/input_check.c src/oper_pu_sw.c src/oper_rev_rotate.c src/oper_rotate.c \
+	   src/push_swap.c src/sort_util.c src/stack_sort.c
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 OBJS = $(SRCS:.c=.o)
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -Isrc
 
 all: $(LIBFT) $(NAME)
 
