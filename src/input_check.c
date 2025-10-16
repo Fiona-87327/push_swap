@@ -6,22 +6,13 @@
 /*   By: jiyawang <jiyan@student.42.fr>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 21:29:34 by jiyawang          #+#    #+#             */
-/*   Updated: 2025/09/24 14:55:44 by jiyawang         ###   ########.fr       */
+/*   Updated: 2025/10/16 20:59:14 by jiyawang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
-{
-	if (argc == 2)
-	{
-		input_check(argc, argv);
-		return (0);
-	}
-	write(1, "wrong number of arguments\n", 26);
-	return (1);
-}
+/* note: main() is implemented in src/push_swap.c */
 
 int	c_len(char **array)
 {
@@ -48,7 +39,6 @@ int	nbr_check(char *argv)
 	}
 	return (1);
 }
-
 
 void	input_check(int argc, char **argv)
 {
