@@ -12,8 +12,6 @@
 
 #include "push_swap.h"
 
-/* note: main() is implemented in src/push_swap.c */
-
 int	c_len(char **array)
 {
 	int	len;
