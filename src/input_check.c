@@ -63,3 +63,14 @@ void	input_check(int argc, char **argv)
 	if (argc == 2)
 		free(ar_tmp);
 }
+
+int	main(int argc, char **argv)
+	{
+		if (argc == 2)
+		{
+			input_check(argc, argv);
+			return (0);
+		}
+		write(1, "wrong number of arguments\n", 26);
+		return (1);
+	}
