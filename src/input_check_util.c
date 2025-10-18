@@ -6,18 +6,11 @@
 /*   By: jiyawang <jiyawang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/24 13:00:00 by jiyawang          #+#    #+#             */
-/*   Updated: 2025/10/18 16:49:59 by jiyawang         ###   ########.fr       */
+/*   Updated: 2025/10/18 20:01:26 by jiyawang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	error(char *str)
-{
-	ft_putstr_fd(str, 2);
-	ft_putstr_fd("\n", 2);
-	exit(1);
-}
 
 int	nbr_check(char *argv)
 {
@@ -64,4 +57,11 @@ static int	dup_check(char **argv)
 int	duplicates_check(char **argv)
 {
 	return (dup_check(argv));
+}
+
+void	error(char *str)
+{
+	ft_putstr_fd(str, 2);
+	ft_putstr_fd("\n", 2);
+	exit(1);
 }
