@@ -6,7 +6,7 @@
 /*   By: jiyawang <jiyawang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 21:29:09 by jiyawang          #+#    #+#             */
-/*   Updated: 2025/10/18 16:40:18 by jiyawang         ###   ########.fr       */
+/*   Updated: 2025/10/18 19:45:27 by jiyawang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void				k_distribution_sort(t_stack *a, t_stack *b);
 void				reintegration_sort(t_stack *a, t_stack *b);
 void				four_five_sort(t_stack *a, t_stack *b);
 void				three_sort(t_stack *a);
-void				push_swap(t_stack *a, t_stack *b);
+void				k_sort(t_stack *a, t_stack *b);
 
 /* Utility Functions */
 int					stack_len(t_stack *a);

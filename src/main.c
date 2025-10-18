@@ -6,7 +6,7 @@
 /*   By: jiyawang <jiyawang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 14:49:44 by jiyawang          #+#    #+#             */
-/*   Updated: 2025/10/18 17:44:09 by jiyawang         ###   ########.fr       */
+/*   Updated: 2025/10/18 19:45:11 by jiyawang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char **argv)
 	b.top = NULL;
 	b.size = 0;
 	assign_index(a);
-	push_swap(a, &b);
+	k_sort(a, &b);
 	return (0);
 }
 

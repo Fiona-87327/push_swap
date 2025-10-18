@@ -6,7 +6,7 @@
 /*   By: jiyawang <jiyawang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/24 11:26:38 by jiyawang          #+#    #+#             */
-/*   Updated: 2025/10/18 16:34:25 by jiyawang         ###   ########.fr       */
+/*   Updated: 2025/10/18 19:44:54 by jiyawang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,34 +60,28 @@ void	reintegration_sort(t_stack *a, t_stack *b)
 
 void	three_sort(t_stack *a)
 {
-	int	top;
-	int	mid;
-	int	bot;
+	t_node	*n1;
+	t_node	*n2;
+	t_node	*n3;
 
-	if (a->size == 2)
-	{
-		if (a->top->value > a->top->next->value)
-			sa(&a);
+	if (a->size == 2 && a->top->index > a->top->next->index)
+		return (sa(&a));
+	if (a->size != 3)
 		return ;
-	}
-	top = a->top->value;
-	mid = a->top->next->value;
-	bot = a->top->next->next->value;
-	if (top > mid && mid < bot && top < bot)
+	n1 = a->top;
+	n2 = n1->next;
+	n3 = n2->next;
+	if (n1->index > n2->index && n2->index < n3->index && n1->index < n3->index)
 		sa(&a);
-	else if (top > mid && mid > bot)
-	{
-		sa(&a);
-		rra(&a);
-	}
-	else if (top > mid && mid < bot && top > bot)
+	else if (n1->index > n2->index && n1->index > n3->index
+		&& n2->index > n3->index)
+		return (sa(&a), rra(&a));
+	else if (n1->index > n3->index)
 		ra(&a);
-	else if (top < mid && mid > bot && top < bot)
-	{
-		sa(&a);
-		ra(&a);
-	}
-	else if (top < mid && mid > bot && top > bot)
+	else if (n2->index > n1->index && n2->index > n3->index
+		&& n1->index < n3->index)
+		return (sa(&a), ra(&a));
+	else if (n1->index < n2->index && n2->index > n3->index)
 		rra(&a);
 }
 
@@ -111,7 +105,7 @@ void	four_five_sort(t_stack *a, t_stack *b)
 		pa(&a, &b);
 }
 
-void	push_swap(t_stack *a, t_stack *b)
+void	k_sort(t_stack *a, t_stack *b)
 {
 	if (a->size <= 3)
 		three_sort(a);
