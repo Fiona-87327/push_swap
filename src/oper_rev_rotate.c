@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   oper_rev_rotate.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jiyawang <jiyan@student.42.fr>             +#+  +:+       +#+        */
+/*   By: jiyawang <jiyawang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/24 10:55:16 by jiyawang          #+#    #+#             */
-/*   Updated: 2025/09/24 13:03:57 by jiyawang         ###   ########.fr       */
+/*   Updated: 2025/10/18 15:44:40 by jiyawang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,43 +14,41 @@
 
 void	rra(t_stack **a)
 {
-	t_stack	*last;
-	t_stack	*prev;
+	t_node	*prev;
+	t_node	*curr;
 
-	if (!a || !*a || !(*a)->next)
+	if (!a || !*a || (*a)->size < 2)
 		return ;
-	last = *a;
 	prev = NULL;
-	while (last->next)
+	curr = (*a)->top;
+	while (curr->next)
 	{
-		prev = last;
-		last = last->next;
+		prev = curr;
+		curr = curr->next;
 	}
-	if (prev)
-		prev->next = NULL;
-	last->next = *a;
-	*a = last;
+	curr->next = (*a)->top;
+	(*a)->top = curr;
+	prev->next = NULL;
 	write(1, "rra\n", 4);
 }
 
 void	rrb(t_stack **b)
 {
-	t_stack	*last;
-	t_stack	*prev;
+	t_node	*prev;
+	t_node	*curr;
 
-	if (!b || !*b || !(*b)->next)
+	if (!b || !*b || (*b)->size < 2)
 		return ;
-	last = *b;
 	prev = NULL;
-	while (last->next)
+	curr = (*b)->top;
+	while (curr->next)
 	{
-		prev = last;
-		last = last->next;
+		prev = curr;
+		curr = curr->next;
 	}
-	if (prev)
-		prev->next = NULL;
-	last->next = *b;
-	*b = last;
+	curr->next = (*b)->top;
+	(*b)->top = curr;
+	prev->next = NULL;
 	write(1, "rrb\n", 4);
 }
 

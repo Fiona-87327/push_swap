@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   oper_rotate.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jiyawang <jiyan@student.42.fr>             +#+  +:+       +#+        */
+/*   By: jiyawang <jiyawang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/24 10:54:05 by jiyawang          #+#    #+#             */
-/*   Updated: 2025/09/24 14:42:55 by jiyawang         ###   ########.fr       */
+/*   Updated: 2025/10/18 17:44:23 by jiyawang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,57 +14,34 @@
 
 void	ra(t_stack **a)
 {
-	t_stack	*tmp;
-	t_stack	*last;
+	t_node	*first;
+	t_node	*last;
 
-	if (!a || !*a || !(*a)->next)
+	if (!a || !*a || (*a)->size < 2)
 		return ;
-	tmp = *a;
-	*a = (*a)->next;
-	last = *a;
+	first = (*a)->top;
+	last = (*a)->top;
 	while (last->next)
 		last = last->next;
-	last->next = tmp;
-	tmp->next = NULL;
+	(*a)->top = first->next;
+	first->next = NULL;
+	last->next = first;
 	write(1, "ra\n", 3);
 }
 
 void	rb(t_stack **b)
 {
-	t_stack	*tmp;
-	t_stack	*last;
+	t_node	*first;
+	t_node	*last;
 
-	if (!b || !*b || !(*b)->next)
+	if (!b || !*b || (*b)->size < 2)
 		return ;
-	tmp = *b;
-	*b = (*b)->next;
-	last = *b;
+	first = (*b)->top;
+	last = (*b)->top;
 	while (last->next)
 		last = last->next;
-	last->next = tmp;
-	tmp->next = NULL;
+	(*b)->top = first->next;
+	first->next = NULL;
+	last->next = first;
 	write(1, "rb\n", 3);
-}
-
-static void	rotate(t_stack **stack)
-{
-	t_stack	*tmp;
-	t_stack	*last;
-
-	if (!stack || !*stack || !(*stack)->next)
-		return ;
-	tmp = *stack;
-	*stack = (*stack)->next;
-	last = *stack;
-	while (last->next)
-		last = last->next;
-	last->next = tmp;
-	tmp->next = NULL;
-}
-
-void	rr(t_stack **a, t_stack **b)
-{
-	rotate(a);
-	rotate(b);
-	write(1, "rr\n", 3);
 }

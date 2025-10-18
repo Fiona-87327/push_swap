@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_util.c                                          :+:      :+:    :+:   */
+/*   sort_util.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jiyawang <jiyan@student.42.fr>             +#+  +:+       +#+        */
+/*   By: jiyawang <jiyawang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 21:30:22 by jiyawang          #+#    #+#             */
-/*   Updated: 2025/09/24 11:51:39 by jiyawang         ###   ########.fr       */
+/*   Updated: 2025/10/18 17:42:04 by jiyawang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,54 +14,78 @@
 
 int	stack_len(t_stack *a)
 {
-	int	len;
+	int		len;
+	t_node	*node;
 
+	if (!a)
+		return (0);
 	len = 0;
-	while (a)
+	node = a->top;
+	while (node)
 	{
 		len++;
-		a = a->next;
+		node = node->next;
 	}
 	return (len);
 }
 
-t_stack	*get_last(t_stack *a)
+int	find_max_index(t_stack *stack)
 {
-	if (!a)
-		return (NULL);
-	while (a->next)
-		a = a->next;
-	return (a);
-}
+	t_node	*tmp;
+	int		max;
 
-t_stack	*get_min(t_stack *a)
-{
-	t_stack	*min;
-
-	if (!a)
-		return (NULL);
-	min = a;
-	while (a)
+	if (!stack || !stack->top)
+		return (-1);
+	tmp = stack->top;
+	max = tmp->index;
+	while (tmp)
 	{
-		if (a->value < min->value)
-			min = a;
-		a = a->next;
-	}
-	return (min);
-}
-
-t_stack	*get_max(t_stack *a)
-{
-	t_stack	*max;
-
-	if (!a)
-		return (NULL);
-	max = a;
-	while (a)
-	{
-		if (a->value > max->value)
-			max = a;
-		a = a->next;
+		if (tmp->index > max)
+			max = tmp->index;
+		tmp = tmp->next;
 	}
 	return (max);
+}
+
+int	position_of_index(t_stack *stack, int index)
+{
+	t_node	*tmp;
+	int		pos;
+
+	if (!stack || !stack->top)
+		return (-1);
+	tmp = stack->top;
+	pos = 0;
+	while (tmp)
+	{
+		if (tmp->index == index)
+			return (pos);
+		pos++;
+		tmp = tmp->next;
+	}
+	return (-1);
+}
+
+int	find_min_index_pos(t_stack *a)
+{
+	t_node	*tmp;
+	int		min;
+	int		pos;
+	int		i;
+
+	tmp = a->top;
+	min = tmp->index;
+	pos = 0;
+	i = 0;
+	while (tmp)
+	{
+		if (tmp->index < min)
+		{
+			min = tmp->index;
+			pos = i;
+		}
+		i++;
+		tmp = tmp->next;
+	}
+	return (pos);
 }

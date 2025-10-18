@@ -6,21 +6,13 @@
 /*   By: jiyawang <jiyawang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 21:29:49 by jiyawang          #+#    #+#             */
-/*   Updated: 2025/10/18 12:52:12 by jiyawang         ###   ########.fr       */
+/*   Updated: 2025/10/18 16:06:31 by jiyawang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
-{
-	if (argc < 2)
-		return (0);
-	input_check(argc, argv);
-	return (0);
-}
-
-int	parse_long_strict(const char *s, long long *out)
+static int	parse_long_strict(const char *s, long long *out)
 {
 	int			sign;
 	long long	res;

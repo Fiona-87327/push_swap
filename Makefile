@@ -1,7 +1,8 @@
 
 NAME = push_swap
-SRCS = src/array_sort.c src/check_util.c src/input_check.c src/oper_pu_sw.c src/oper_rev_rotate.c src/oper_rotate.c \
-	   src/push_swap.c src/sort_util.c src/stack_sort.c
+SRCS = src/check_util.c src/input_check_util.c src/intput_check.c src/oper_swapo.c \
+	   src/oper_rev_rotate.c src/oper_rotate.c src/sort_util.c src/k_sort.c \
+	   src/stack_init.c src/main.c
 LIBFT_DIR = ./libft
 LIBFT = $(LIBFT_DIR)/libft.a
 OBJS = $(SRCS:.c=.o)

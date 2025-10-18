@@ -1,35 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   input_check.c                                      :+:      :+:    :+:   */
+/*   input_check_util.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jiyawang <jiyawang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/21 21:29:34 by jiyawang          #+#    #+#             */
-/*   Updated: 2025/10/18 12:37:31 by jiyawang         ###   ########.fr       */
+/*   Created: 2025/09/24 13:00:00 by jiyawang          #+#    #+#             */
+/*   Updated: 2025/10/18 16:49:59 by jiyawang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	c_len(char **array)
+void	error(char *str)
 {
-	int	len;
-
-	len = 0;
-	while (array[len])
-		len++;
-	return (len);
-}
-
-int	is_sign(char c)
-{
-	return (c == '-' || c == '+');
-}
-
-int	is_digit(char c)
-{
-	return (c >= '0' && c <= '9');
+	ft_putstr_fd(str, 2);
+	ft_putstr_fd("\n", 2);
+	exit(1);
 }
 
 int	nbr_check(char *argv)
@@ -52,17 +39,29 @@ int	nbr_check(char *argv)
 	return (1);
 }
 
-void	free_split(char **array)
+static int	dup_check(char **argv)
 {
 	int	i;
+	int	j;
+	int	len;
 
-	if (!array)
-		return ;
 	i = 0;
-	while (array[i])
+	len = c_len(argv);
+	while (i < len)
 	{
-		free(array[i]);
+		j = i + 1;
+		while (j < len)
+		{
+			if (ft_atoi(argv[i]) == ft_atoi(argv[j]))
+				return (1);
+			j++;
+		}
 		i++;
 	}
-	free(array);
+	return (0);
+}
+
+int	duplicates_check(char **argv)
+{
+	return (dup_check(argv));
 }
