@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_util.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jiyawang <jiyan@student.42.fr>             +#+  +:+       +#+        */
+/*   By: jiyawang <jiyawang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/24 13:00:00 by jiyawang          #+#    #+#             */
-/*   Updated: 2025/09/24 14:32:47 by jiyawang         ###   ########.fr       */
+/*   Updated: 2025/10/18 12:50:42 by jiyawang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	is_in_order(t_stack **head)
 	return (1);
 }
 
-int	dup_check(char **argv)
+static int	dup_check(char **argv)
 {
 	int	i;
 	int	j;

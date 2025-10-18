@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jiyawang <jiyan@student.42.fr>             +#+  +:+       +#+        */
+/*   By: jiyawang <jiyawang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 21:29:09 by jiyawang          #+#    #+#             */
-/*   Updated: 2025/09/24 14:36:06 by jiyawang         ###   ########.fr       */
+/*   Updated: 2025/10/18 12:50:19 by jiyawang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,18 @@ void				ss(t_stack **a, t_stack **b);
 void				rr(t_stack **a, t_stack **b);
 void				rrr(t_stack **a, t_stack **b);
 
+int					is_sign(char c);
+int					is_digit(char c);
 void				error(char *str);
 int					c_len(char **array);
-void				free_stack(t_stack **head);
-int					is_in_order(t_stack **head);
+// void				free_stack(t_stack **head);
+// int					is_in_order(t_stack **head);
 int					nbr_check(char *argv);
-int					dup_check(char **argv);
+// int					dup_check(char **argv);
 int					duplicates_check(char **argv);
+int					parse_long_strict(const char *s, long long *out);
 void				input_check(int argc, char **argv);
+void				free_split(char **array);
 void				k_sort(t_stack **a, t_stack **b, int len);
 int					find_max_index_pos(t_stack *stack);
 void				bring_to_top(t_stack **stack, int target_pos);
