@@ -6,7 +6,7 @@
 /*   By: jiyawang <jiyawang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 21:30:22 by jiyawang          #+#    #+#             */
-/*   Updated: 2025/10/18 17:42:04 by jiyawang         ###   ########.fr       */
+/*   Updated: 2025/10/19 18:33:58 by jiyawang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,23 @@ int	stack_len(t_stack *a)
 		node = node->next;
 	}
 	return (len);
+}
+
+void	free_stack(t_stack *stack)
+{
+	t_node	*current;
+	t_node	*next;
+
+	if (!stack)
+		return ;
+	current = stack->top;
+	while (current)
+	{
+		next = current->next;
+		free(current);
+		current = next;
+	}
+	free(stack);
 }
 
 int	find_max_index(t_stack *stack)
