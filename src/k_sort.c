@@ -6,7 +6,7 @@
 /*   By: jiyawang <jiyawang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/24 11:26:38 by jiyawang          #+#    #+#             */
-/*   Updated: 2025/10/19 12:28:15 by jiyawang         ###   ########.fr       */
+/*   Updated: 2025/10/19 15:27:46 by jiyawang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,18 +80,12 @@ void	three_sort(t_stack *a)
 	if (top > mid && mid < bot && top < bot)
 		sa(&a);
 	else if (top > mid && mid > bot)
-	{
-		sa(&a);
-		rra(&a);
-	}
-	else if (top > mid && mid < bot && top > bot)
+		(sa(&a), rra(&a));
+	else if (top > mid && top > bot)
 		ra(&a);
 	else if (top < mid && mid > bot && top < bot)
-	{
-		sa(&a);
-		ra(&a);
-	}
-	else if (top < mid && mid > bot && top > bot)
+		(sa(&a), ra(&a));
+	else if (top < mid && mid > bot)
 		rra(&a);
 }
 
