@@ -6,7 +6,7 @@
 /*   By: jiyawang <jiyawang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/24 11:26:38 by jiyawang          #+#    #+#             */
-/*   Updated: 2025/10/18 19:44:54 by jiyawang         ###   ########.fr       */
+/*   Updated: 2025/10/19 12:28:15 by jiyawang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	k_distribution_sort(t_stack *a, t_stack *b)
 		if (a->top->index <= th + delta)
 		{
 			pb(&a, &b);
-			if (b->top && b->top->index <= th)
+			if (!is_empty(b) && b->top->index <= th)
 				rb(&b);
 			th++;
 		}
@@ -40,18 +40,20 @@ void	reintegration_sort(t_stack *a, t_stack *b)
 	int	max_i;
 	int	pos;
 
+	if (!a)
+		return ;
 	while (!is_empty(b))
 	{
 		max_i = find_max_index(b);
 		pos = position_of_index(b, max_i);
 		if (pos <= b->size / 2)
 		{
-			while (b->top && b->top->index != max_i)
+			while (!is_empty(b) && b->top->index != max_i)
 				rb(&b);
 		}
 		else
 		{
-			while (b->top && b->top->index != max_i)
+			while ((!is_empty(b)) && b->top->index != max_i)
 				rrb(&b);
 		}
 		pa(&a, &b);
@@ -60,28 +62,36 @@ void	reintegration_sort(t_stack *a, t_stack *b)
 
 void	three_sort(t_stack *a)
 {
-	t_node	*n1;
-	t_node	*n2;
-	t_node	*n3;
+	int	top;
+	int	mid;
+	int	bot;
 
-	if (a->size == 2 && a->top->index > a->top->next->index)
-		return (sa(&a));
-	if (a->size != 3)
+	if (!a || a->size < 2)
 		return ;
-	n1 = a->top;
-	n2 = n1->next;
-	n3 = n2->next;
-	if (n1->index > n2->index && n2->index < n3->index && n1->index < n3->index)
+	if (a->size == 2)
+	{
+		if (a->top->value > a->top->next->value)
+			sa(&a);
+		return ;
+	}
+	top = a->top->value;
+	mid = a->top->next->value;
+	bot = a->top->next->next->value;
+	if (top > mid && mid < bot && top < bot)
 		sa(&a);
-	else if (n1->index > n2->index && n1->index > n3->index
-		&& n2->index > n3->index)
-		return (sa(&a), rra(&a));
-	else if (n1->index > n3->index)
+	else if (top > mid && mid > bot)
+	{
+		sa(&a);
+		rra(&a);
+	}
+	else if (top > mid && mid < bot && top > bot)
 		ra(&a);
-	else if (n2->index > n1->index && n2->index > n3->index
-		&& n1->index < n3->index)
-		return (sa(&a), ra(&a));
-	else if (n1->index < n2->index && n2->index > n3->index)
+	else if (top < mid && mid > bot && top < bot)
+	{
+		sa(&a);
+		ra(&a);
+	}
+	else if (top < mid && mid > bot && top > bot)
 		rra(&a);
 }
 
@@ -89,11 +99,13 @@ void	four_five_sort(t_stack *a, t_stack *b)
 {
 	int	pos;
 
+	if (!a)
+		return ;
 	while (a->size > 3)
 	{
 		pos = find_min_index_pos(a);
 		if (pos <= a->size / 2)
-			while (pos--)
+			while (pos-- > 0)
 				ra(&a);
 		else
 			while (pos++ < a->size)
@@ -107,6 +119,8 @@ void	four_five_sort(t_stack *a, t_stack *b)
 
 void	k_sort(t_stack *a, t_stack *b)
 {
+	if (!a)
+		return ;
 	if (a->size <= 3)
 		three_sort(a);
 	else if (a->size <= 5)
