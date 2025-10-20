@@ -8,7 +8,7 @@ LIBFT = $(LIBFT_DIR)/libft.a
 OBJS = $(SRCS:.c=.o)
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -Isrc
+CFLAGS = -Wall -Wextra -Werror -Iinclude
 
 all: $(LIBFT) $(NAME)
 

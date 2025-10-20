@@ -41,25 +41,60 @@ static void	append_node(t_stack *stack, t_node *new)
 	stack->size++;
 }
 
-t_stack	*init_stack_from_args(int argc, char **argv)
+static void	process_args(t_stack *stack, char **args)
 {
-	t_stack	*stack;
 	t_node	*new;
 	int		i;
+
+	i = 0;
+	while (args[i])
+	{
+		new = create_node(ft_atoi(args[i]));
+		if (!new)
+		{
+			free_stack(stack);
+			return ;
+		}
+		append_node(stack, new);
+		i++;
+	}
+}
+
+static t_stack	*init_from_array(char **args, int should_free)
+{
+	t_stack	*stack;
 
 	stack = malloc(sizeof(t_stack));
 	if (!stack)
 		return (NULL);
 	stack->top = NULL;
 	stack->size = 0;
-	i = 1;
-	while (i < argc)
+	process_args(stack, args);
+	if (should_free)
+		free_split(args);
+	if (!stack->top)
 	{
-		new = create_node(ft_atoi(argv[i]));
-		if (!new)
-			return (NULL);
-		append_node(stack, new);
-		i++;
+		free(stack);
+		return (NULL);
 	}
 	return (stack);
+}
+
+t_stack	*init_stack_from_args(int argc, char **argv)
+{
+	char	**args;
+
+	if (argc == 2)
+	{
+		args = ft_split(argv[1], ' ');
+		if (!args || !args[0])
+		{
+			if (args)
+				free_split(args);
+			return (NULL);
+		}
+		return (init_from_array(args, 1));
+	}
+	else
+		return (init_from_array(argv + 1, 0));
 }
