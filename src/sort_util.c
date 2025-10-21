@@ -83,26 +83,26 @@ int	position_of_index(t_stack *stack, int index)
 	return (-1);
 }
 
-int	find_min_index_pos(t_stack *a)
+int	find_min_index_position(t_stack *a)
 {
 	t_node	*tmp;
 	int		min;
-	int		pos;
+	int		position;
 	int		i;
 
 	tmp = a->top;
 	min = tmp->index;
-	pos = 0;
+	position = 0;
 	i = 0;
 	while (tmp)
 	{
 		if (tmp->index < min)
 		{
 			min = tmp->index;
-			pos = i;
+			position = i;
 		}
 		i++;
 		tmp = tmp->next;
 	}
-	return (pos);
+	return (position);
 }

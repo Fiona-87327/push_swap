@@ -25,10 +25,15 @@ clean:
 	rm -f $(OBJS)
 	make -C $(LIBFT_DIR) clean
 
-fclean: clean
+fclean f: clean
 	rm -f $(NAME)
 	make -C $(LIBFT_DIR) fclean
+
+v : re
+	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./push_swap 1 5 2 4 21 435 234 546 567 78 43
 
 re: fclean all
 
 .PHONY: all clean fclean re
+
+# valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes

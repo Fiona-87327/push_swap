@@ -47,7 +47,7 @@ void				rrr(t_stack **a, t_stack **b);
 int					is_sign(char c);
 int					is_digit(char c);
 void				error(char *str);
-int					c_len(char **array);
+int					argv_len(char **array);
 int					nbr_check(char *argv);
 int					is_empty(t_stack *stack);
 int					duplicates_check(char **argv);
@@ -68,8 +68,9 @@ void				k_sort(t_stack *a, t_stack *b);
 int					stack_len(t_stack *a);
 void				free_stack(t_stack *stack);
 int					find_max_index(t_stack *stack);
-int					find_min_index_pos(t_stack *a);
+int					find_min_index_position(t_stack *a);
 int					position_of_index(t_stack *stack, int index);
 void				assign_index(t_stack *stack);
+int					is_sorted(t_stack *stack);
 
 #endif

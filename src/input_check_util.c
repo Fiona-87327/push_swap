@@ -32,14 +32,14 @@ int	nbr_check(char *argv)
 	return (1);
 }
 
-static int	dup_check(char **argv)
+int	duplicates_check(char **argv)
 {
 	int	i;
 	int	j;
 	int	len;
 
 	i = 0;
-	len = c_len(argv);
+	len = argv_len(argv);
 	while (i < len)
 	{
 		j = i + 1;
@@ -54,14 +54,25 @@ static int	dup_check(char **argv)
 	return (0);
 }
 
-int	duplicates_check(char **argv)
-{
-	return (dup_check(argv));
-}
-
 void	error(char *str)
 {
 	ft_putstr_fd(str, 2);
 	ft_putstr_fd("\n", 2);
 	exit(1);
+}
+
+int	is_sorted(t_stack *stack)
+{
+	t_node	*current;
+
+	if (!stack || !stack->top)
+		return (1);
+	current = stack->top;
+	while (current->next)
+	{
+		if (current->value > current->next->value)
+			return (0);
+		current = current->next;
+	}
+	return (1);
 }

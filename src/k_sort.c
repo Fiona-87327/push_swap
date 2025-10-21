@@ -14,21 +14,19 @@
 
 void	k_distribution_sort(t_stack *a, t_stack *b)
 {
-	int	n;
 	int	delta;
-	int	th;
+	int	threshold;
 
-	n = a->size;
-	delta = n / 20 + 7;
-	th = 0;
+	delta = a->size / 20 + 7;
+	threshold = 0;
 	while (!is_empty(a))
 	{
-		if (a->top->index <= th + delta)
+		if (a->top->index <= threshold + delta)
 		{
 			pb(&a, &b);
-			if (!is_empty(b) && b->top->index <= th)
+			if (!is_empty(b) && b->top->index <= threshold)
 				rb(&b);
-			th++;
+			threshold++;
 		}
 		else
 			ra(&a);
@@ -37,23 +35,23 @@ void	k_distribution_sort(t_stack *a, t_stack *b)
 
 void	reintegration_sort(t_stack *a, t_stack *b)
 {
-	int	max_i;
-	int	pos;
+	int	max_index;
+	int	position;
 
 	if (!a)
 		return ;
 	while (!is_empty(b))
 	{
-		max_i = find_max_index(b);
-		pos = position_of_index(b, max_i);
-		if (pos <= b->size / 2)
+		max_index = find_max_index(b);
+		position = position_of_index(b, max_index);
+		if (position <= b->size / 2)
 		{
-			while (!is_empty(b) && b->top->index != max_i)
+			while (!is_empty(b) && b->top->index != max_index)
 				rb(&b);
 		}
 		else
 		{
-			while ((!is_empty(b)) && b->top->index != max_i)
+			while ((!is_empty(b)) && b->top->index != max_index)
 				rrb(&b);
 		}
 		pa(&a, &b);
@@ -91,18 +89,18 @@ void	three_sort(t_stack *a)
 
 void	four_five_sort(t_stack *a, t_stack *b)
 {
-	int	pos;
+	int	position;
 
 	if (!a)
 		return ;
 	while (a->size > 3)
 	{
-		pos = find_min_index_pos(a);
-		if (pos <= a->size / 2)
-			while (pos-- > 0)
+		position = find_min_index_position(a);
+		if (position <= a->size / 2)
+			while (position-- > 0)
 				ra(&a);
 		else
-			while (pos++ < a->size)
+			while (position++ < a->size)
 				rra(&a);
 		pb(&a, &b);
 	}
@@ -113,7 +111,7 @@ void	four_five_sort(t_stack *a, t_stack *b)
 
 void	k_sort(t_stack *a, t_stack *b)
 {
-	if (!a)
+	if (!a || is_sorted(a))
 		return ;
 	if (a->size <= 3)
 		three_sort(a);

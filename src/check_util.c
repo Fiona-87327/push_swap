@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-int	c_len(char **array)
+int	argv_len(char **array)
 {
 	int	len;
 
@@ -47,6 +47,7 @@ void	free_split(char **array)
 	while (array[i])
 	{
 		free(array[i]);
+		array[i] = NULL;
 		i++;
 	}
 	free(array);
