@@ -6,7 +6,7 @@
 /*   By: jiyawang <jiyawang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/24 13:00:00 by jiyawang          #+#    #+#             */
-/*   Updated: 2025/10/18 20:01:26 by jiyawang         ###   ########.fr       */
+/*   Updated: 2025/10/25 13:20:23 by jiyawang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,20 +59,4 @@ void	error(char *str)
 	ft_putstr_fd(str, 2);
 	ft_putstr_fd("\n", 2);
 	exit(1);
-}
-
-int	is_sorted(t_stack *stack)
-{
-	t_node	*current;
-
-	if (!stack || !stack->top)
-		return (1);
-	current = stack->top;
-	while (current->next)
-	{
-		if (current->value > current->next->value)
-			return (0);
-		current = current->next;
-	}
-	return (1);
 }

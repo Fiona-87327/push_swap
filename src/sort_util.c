@@ -6,28 +6,11 @@
 /*   By: jiyawang <jiyawang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 21:30:22 by jiyawang          #+#    #+#             */
-/*   Updated: 2025/10/19 18:33:58 by jiyawang         ###   ########.fr       */
+/*   Updated: 2025/10/25 13:20:07 by jiyawang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	stack_len(t_stack *a)
-{
-	int		len;
-	t_node	*node;
-
-	if (!a)
-		return (0);
-	len = 0;
-	node = a->top;
-	while (node)
-	{
-		len++;
-		node = node->next;
-	}
-	return (len);
-}
 
 void	free_stack(t_stack *stack)
 {
@@ -105,4 +88,20 @@ int	find_min_index_position(t_stack *a)
 		tmp = tmp->next;
 	}
 	return (position);
+}
+
+int	is_sorted(t_stack *stack)
+{
+	t_node	*current;
+
+	if (!stack || !stack->top)
+		return (1);
+	current = stack->top;
+	while (current->next)
+	{
+		if (current->value > current->next->value)
+			return (0);
+		current = current->next;
+	}
+	return (1);
 }

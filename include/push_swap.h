@@ -6,7 +6,7 @@
 /*   By: jiyawang <jiyawang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 21:29:09 by jiyawang          #+#    #+#             */
-/*   Updated: 2025/10/19 18:33:19 by jiyawang         ###   ########.fr       */
+/*   Updated: 2025/10/25 13:16:46 by jiyawang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,6 @@ void				three_sort(t_stack *a);
 void				k_sort(t_stack *a, t_stack *b);
 
 /* Utility Functions */
-int					stack_len(t_stack *a);
 void				free_stack(t_stack *stack);
 int					find_max_index(t_stack *stack);
 int					find_min_index_position(t_stack *a);
