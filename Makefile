@@ -21,7 +21,7 @@ $(NAME): $(OBJS) $(LIBFT)
 src/%.o: src/%.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-clean:
+clean c:
 	rm -f $(OBJS)
 	make -C $(LIBFT_DIR) clean
 
