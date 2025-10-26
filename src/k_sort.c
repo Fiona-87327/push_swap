@@ -6,7 +6,7 @@
 /*   By: jiyawang <jiyawang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/24 11:26:38 by jiyawang          #+#    #+#             */
-/*   Updated: 2025/10/19 15:27:46 by jiyawang         ###   ########.fr       */
+/*   Updated: 2025/10/26 09:09:55 by jiyawang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,57 +58,6 @@ void	reintegration_sort(t_stack *a, t_stack *b)
 	}
 }
 
-void	three_sort(t_stack *a)
-{
-	int	top;
-	int	mid;
-	int	bot;
-
-	if (!a || a->size < 2)
-		return ;
-	if (a->size == 2)
-	{
-		if (a->top->value > a->top->next->value)
-			sa(&a);
-		return ;
-	}
-	top = a->top->value;
-	mid = a->top->next->value;
-	bot = a->top->next->next->value;
-	if (top > mid && mid < bot && top < bot)
-		sa(&a);
-	else if (top > mid && mid > bot)
-		(sa(&a), rra(&a));
-	else if (top > mid && top > bot)
-		ra(&a);
-	else if (top < mid && mid > bot && top < bot)
-		(sa(&a), ra(&a));
-	else if (top < mid && mid > bot)
-		rra(&a);
-}
-
-void	four_five_sort(t_stack *a, t_stack *b)
-{
-	int	position;
-
-	if (!a)
-		return ;
-	while (a->size > 3)
-	{
-		position = find_min_index_position(a);
-		if (position <= a->size / 2)
-			while (position-- > 0)
-				ra(&a);
-		else
-			while (position++ < a->size)
-				rra(&a);
-		pb(&a, &b);
-	}
-	three_sort(a);
-	while (!is_empty(b))
-		pa(&a, &b);
-}
-
 void	k_sort(t_stack *a, t_stack *b)
 {
 	if (!a || is_sorted(a))
@@ -121,5 +70,27 @@ void	k_sort(t_stack *a, t_stack *b)
 	{
 		k_distribution_sort(a, b);
 		reintegration_sort(a, b);
+	}
+}
+
+void	assign_index(t_stack *stack)
+{
+	t_node	*i_node;
+	t_node	*j_node;
+	int		index;
+
+	i_node = stack->top;
+	while (i_node)
+	{
+		index = 0;
+		j_node = stack->top;
+		while (j_node)
+		{
+			if (j_node->value < i_node->value)
+				index++;
+			j_node = j_node->next;
+		}
+		i_node->index = index;
+		i_node = i_node->next;
 	}
 }
