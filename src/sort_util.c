@@ -6,7 +6,7 @@
 /*   By: jiyawang <jiyawang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/21 21:30:22 by jiyawang          #+#    #+#             */
-/*   Updated: 2025/10/25 13:20:07 by jiyawang         ###   ########.fr       */
+/*   Updated: 2025/10/26 09:25:48 by jiyawang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,17 +50,17 @@ int	find_max_index(t_stack *stack)
 int	position_of_index(t_stack *stack, int index)
 {
 	t_node	*tmp;
-	int		pos;
+	int		position;
 
 	if (!stack || !stack->top)
 		return (-1);
 	tmp = stack->top;
-	pos = 0;
+	position = 0;
 	while (tmp)
 	{
 		if (tmp->index == index)
-			return (pos);
-		pos++;
+			return (position);
+		position++;
 		tmp = tmp->next;
 	}
 	return (-1);
