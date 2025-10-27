@@ -1,7 +1,3 @@
-The Push swap project is a simple yet highly structured algorithmic challenge: you
- need to sort data.
- 
-  You have at your disposal a set of integer values, 2 stacks, and a set of instructions to
- manipulate both stacks.
- Your goal? Write a C program called push_swap that calculates and displays the
- shortest sequence of Push_swap instructions needed to sort the given integers.
+# push_swap
+
+The Push Swap project is a compact algorithmic challenge: given a list of integers, sort them using only two stacks and a limited set of operations. Your task is to write a C program called `push_swap` that computes and prints a (near-)optimal sequence of instructions which, when applied, sorts the input numbers in ascending order.
