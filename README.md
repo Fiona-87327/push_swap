@@ -20,7 +20,7 @@ https://github.com/o-reo/push_swap_visualizer
 Given:
 - A list of unique integers
 - Two stacks: `a` (initial input) and `b` (auxiliary)
-- A limited set of operations (see [Operations](#operations))
+- A limited set of operations 
 
 Goal:
 - Sort stack `a` in ascending order
