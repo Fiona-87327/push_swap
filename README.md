@@ -219,6 +219,10 @@ This minimizes unnecessary operations.
 - Non-integer inputs will trigger an error
 - The program validates all inputs before sorting
 
+🎨 Push Swap Visualizer - A link to the o-reo/push_swap_visualizer repository
+
+<img width="800" height="450" alt="Aufzeichnung2026-05-25085404-Trim-ezgif com-crop" src="https://github.com/user-attachments/assets/9a9f42bc-1983-4900-b31f-faa6d057bb91" />
+
 ## 👤 Author
 
 - **jiyawang** - 42 School student
