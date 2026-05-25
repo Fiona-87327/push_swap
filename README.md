@@ -217,8 +217,6 @@ This minimizes unnecessary operations.
 ## 👤 Author
 
 - **jiyawang** - 42 School student
-- Login: jiyan-0525
-
 ## 📄 License
 
 This project is part of the 42 School curriculum.
