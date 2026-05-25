@@ -2,19 +2,6 @@
 
 A high-performance sorting algorithm implementation that sorts integers using only two stacks and a limited set of operations.
 
-## 📋 Table of Contents
-
-- [Overview](#overview)
-- [Problem Statement](#problem-statement)
-- [Algorithm](#algorithm)
-- [Project Structure](#project-structure)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Operations](#operations)
-- [Performance](#performance)
-- [Testing](#testing)
-- [Resources](#resources)
-
 ## 🎯 Overview
 
 **Push Swap** is a 42 School project that challenges you to write an efficient sorting algorithm in C. The constraint: you can only use two stacks (`a` and `b`) and must sort a list of unique integers with the minimum number of operations.
