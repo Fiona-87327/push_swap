@@ -8,6 +8,13 @@ A high-performance sorting algorithm implementation that sorts integers using on
 
 This implementation uses **k-distribution sort**, a sophisticated distribution-based sorting strategy that significantly reduces operation count compared to naive approaches.
 
+## 🎨 Push Swap Visualizer 
+https://github.com/o-reo/push_swap_visualizer
+
+
+<img width="800" height="450" alt="Aufzeichnung2026-05-25085404-Trim-ezgif com-crop" src="https://github.com/user-attachments/assets/9a9f42bc-1983-4900-b31f-faa6d057bb91" />
+
+
 ## 🤔 Problem Statement
 
 Given:
@@ -206,12 +213,6 @@ This minimizes unnecessary operations.
 - Non-integer inputs will trigger an error
 - The program validates all inputs before sorting
   
-
-## 🎨 Push Swap Visualizer 
-https://github.com/o-reo/push_swap_visualizer
-
-
-<img width="800" height="450" alt="Aufzeichnung2026-05-25085404-Trim-ezgif com-crop" src="https://github.com/user-attachments/assets/9a9f42bc-1983-4900-b31f-faa6d057bb91" />
 
 ## 👤 Author
 
