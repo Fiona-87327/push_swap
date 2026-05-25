@@ -13,6 +13,7 @@ A high-performance sorting algorithm implementation that sorts integers using on
 - [Operations](#operations)
 - [Performance](#performance)
 - [Testing](#testing)
+- [Resources](#resources)
 
 ## 🎯 Overview
 
@@ -207,6 +208,10 @@ When bringing elements back from `b`, the algorithm chooses between:
 
 This minimizes unnecessary operations.
 
+## 📚 Resources
+
+- [K-Distribution Sort Applied to the Push Swap Problem](https://medium.com/@brakebein42/k-distribution-sort-applied-to-the-push-swap-problem-ae2d96d68376) - Detailed Medium article explaining the k-distribution algorithm and its application
+
 ## 📝 Notes
 
 - All input integers must be **unique**
@@ -217,6 +222,7 @@ This minimizes unnecessary operations.
 ## 👤 Author
 
 - **jiyawang** - 42 School student
+
 ## 📄 License
 
 This project is part of the 42 School curriculum.
