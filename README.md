@@ -213,11 +213,6 @@ This minimizes unnecessary operations.
 - Non-integer inputs will trigger an error
 - The program validates all inputs before sorting
   
-
-## 👤 Author
-
-- **jiyawang** - 42 School student
-
 ## 📄 License
 
 This project is part of the 42 School curriculum.
